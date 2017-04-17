@@ -1,2 +1,2 @@
 @echo off
-start python\pythonw.exe app\start_app.py
+start python\pythonw.exe app\start.py
