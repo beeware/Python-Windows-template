@@ -25,7 +25,7 @@ However, if you *do* want use this template directly...
 
     $ cookiecutter https://github.com/pybee/Python-Windows-template --checkout 3.6
 
-3. `Download the Python Embedded Windows installer`_, and extract it.
+3. `Download the Python Embedded Windows install`_, and extract it.
 
 4. Add your code to the template. At the very minimum, you need to have an
    ``app/<app name>/__main__.py`` file that defines an entry point that
@@ -40,17 +40,17 @@ If you've done this correctly, a project with a formal name of ``My Project``,
 with an app name of ```my-project`` should have a directory structure that
 looks something like::
 
-    My Project.app/
-        Contents/
-            MacOS/
-                My Project
-            Resources/
-                app/
-                    my_project/
-                        __init__.py
-                        __main__.py
-                app_packages/
-                    ...
+    My Project/
+        My Project.lnk
+        app/
+            my_project/
+                __init__.py
+                __main__.py
+                app.py
+        app_packages/
+            ...
+        python/
+            ...
 
 The top level directory should identify as an Windows application, and can be
 distributed as a standalone package.
@@ -64,10 +64,8 @@ tap the app icon on your phone, you won't see anything - because there isn't a
 visible console on an iPhone.
 
 To do something interesting, you'll need to work with the native Windows system
-libraries to draw widgets and respond to screen taps. The `Rubicon`_
-Objective C bridging library can be used to enable an easy interface with the
-Windows system libraries. You could also use the `toga`_ library to provides a
-cross-platform widget toolkit that supports Windows.
+libraries to draw widgets and respond to screen taps. One option is the
+`toga`_ library, which is a cross-platform widget toolkit that supports Windows.
 
 If you have any external library dependencies (like ``toga``, or anything other
 third-party library), you should install the library code into the
@@ -75,7 +73,7 @@ third-party library), you should install the library code into the
 directory on a normal Python install.
 
 .. _cookiecutter: http://github.com/audreyr/cookiecutter
-.. _Download the Python Apple support package for Windows: https://github.com/pybee/Python-Apple-support/releases/download/3.6-b1/Python-3.6-Windows-support.b1.tar.gz
+.. _Download the Python Embedded Windows install: https://www.python.org/ftp/python/3.6.1/python-3.6.1-embed-amd64.zip
 .. _Python-Apple-support: http://github.com/pybee/Python-Apple-support
 .. _toga: http://pybee.org/toga
 .. _Rubicon: http://github.com/pybee/rubicon-objc
