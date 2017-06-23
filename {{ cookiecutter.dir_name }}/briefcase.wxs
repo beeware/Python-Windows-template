@@ -3,7 +3,6 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product
             Id="*"
-            UpgradeCode="*"
             Name="{{ cookiecutter.formal_name }}"
             Version="$(var.ProductVersion)"
             Manufacturer="BeeWare Corp"
@@ -16,30 +15,18 @@
 
         <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
 
-        <Icon Id="ProductIcon" SourceFile="brutus-256.ico"/>
+        <Icon Id="ProductIcon" SourceFile="content/app/{{ cookiecutter.app_name }}.ico" />
 
-        <Property Id="ARPPRODUCTICON" Value="ProductIcon"/>
-        <Property Id="ARPHELPLINK" Value="https://pybee.org"/>
-        <Property Id="ARPURLINFOABOUT" Value="https://pybee.org/about"/>
-        <Property Id="ARPNOREPAIR" Value="1"/>
-        <Property Id="ARPNOMODIFY" Value="1"/>
+        <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+        <Property Id="ARPHELPLINK" Value="https://pybee.org" />
+        <Property Id="ARPURLINFOABOUT" Value="https://pybee.org/about" />
+        <Property Id="ARPNOREPAIR" Value="1" />
+        <Property Id="ARPNOMODIFY" Value="1" />
 
-        <Upgrade Id="$(var.ProductUpgradeCode)">
-            <UpgradeVersion
-                    Minimum="$(var.ProductVersion)"
-                    OnlyDetect="yes"
-                    Property="NEWERVERSIONDETECTED"
-            />
-            <UpgradeVersion
-                    Minimum="0.0.0"
-                    Maximum="$(var.ProductVersion)"
-                    IncludeMinimum="yes"
-                    IncludeMaximum="no"
-                    Property="OLDERVERSIONBEINGUPGRADED"
-            />
-        </Upgrade>
-
-        <Condition Message="A newer version of this software is already installed.">NOT NEWERVERSIONDETECTED</Condition>
+        <MajorUpgrade
+            AllowDowngrades="no"
+            DowngradeErrorMessage="A newer version of this software is already installed."
+            AllowSameVersionUpgrades="no" />
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
