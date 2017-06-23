@@ -3,6 +3,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product
             Id="*"
+            UpgradeCode="{{ cookiecutter.guid }}"
             Name="{{ cookiecutter.formal_name }}"
             Version="$(var.ProductVersion)"
             Manufacturer="BeeWare Corp"
