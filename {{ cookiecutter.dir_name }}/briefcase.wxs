@@ -57,7 +57,7 @@
                                 Id="ApplicationShortcut1"
                                 Name="{{ cookiecutter.formal_name }}"
                                 Icon="ProductIcon"
-                                Description="{{ cookiecutter.formal_name }} Application"
+                                Description="{{ cookiecutter.description }}"
                                 Target="[AppDir_python]\pythonw.exe"
                                 WorkingDirectory="AppDir_app"
                                 Arguments="app\start.py" />

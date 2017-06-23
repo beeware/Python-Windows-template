@@ -1,7 +1,7 @@
 {
     "app_name": "appname",
     "formal_name": "App Name",
+    "version": "0.0.1",
     "description": "Short description of app",
-    "dir_name": "windows",
-    "bundle": "com.example"
+    "dir_name": "windows"
 }
