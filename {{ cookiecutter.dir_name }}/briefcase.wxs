@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <?define ProductVersion = "{{ cookiecutter.version }}" ?>
+<?define ProductUpgradeCode = "{{ cookiecutter.guid }}" ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product
             Id="*"
-            UpgradeCode="{{ cookiecutter.guid }}"
+            UpgradeCode="$(var.ProductUpgradeCode)"
             Name="{{ cookiecutter.formal_name }}"
             Version="$(var.ProductVersion)"
             Manufacturer="BeeWare Corp"
@@ -24,10 +25,20 @@
         <Property Id="ARPNOREPAIR" Value="1" />
         <Property Id="ARPNOMODIFY" Value="1" />
 
-        <MajorUpgrade
-            AllowDowngrades="no"
-            DowngradeErrorMessage="A newer version of this software is already installed."
-            AllowSameVersionUpgrades="no" />
+        <Upgrade Id="$(var.ProductUpgradeCode)">
+            <UpgradeVersion
+                    Minimum="$(var.ProductVersion)"
+                    OnlyDetect="yes"
+                    Property="NEWERVERSIONDETECTED"
+            />
+            <UpgradeVersion
+                    Minimum="0.0.0"
+                    Maximum="$(var.ProductVersion)"
+                    IncludeMinimum="yes"
+                    IncludeMaximum="no"
+                    Property="OLDERVERSIONBEINGUPGRADED"
+            />
+        </Upgrade>
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
