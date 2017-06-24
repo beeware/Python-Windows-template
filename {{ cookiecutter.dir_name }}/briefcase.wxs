@@ -7,7 +7,7 @@
             UpgradeCode="$(var.ProductUpgradeCode)"
             Name="{{ cookiecutter.formal_name }}"
             Version="$(var.ProductVersion)"
-            Manufacturer="BeeWare Corp"
+            Manufacturer="{{ cookiecutter.organization_name }}"
             Language="1033">
         <Package
                 InstallerVersion="200"
@@ -42,13 +42,13 @@
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
-                <Directory Id="AppDir" Name="{{ cookiecutter.app_name }}">
+                <Directory Id="AppDir" Name="{{ cookiecutter.formal_name }}">
 <!-- CONTENT -->
                 </Directory>
             </Directory>
 
             <Directory Id="ProgramMenuFolder">
-                <Directory Id="ProgramMenuSubfolder" Name="Example">
+                <Directory Id="ProgramMenuSubfolder" Name="{{ cookiecutter.formal_name }}">
                     <Component
                             Id="ApplicationShortcuts"
                             Guid="12345678-1234-1234-1234-333333333333">
@@ -62,7 +62,7 @@
                                 Arguments="app\start.py" />
                         <RegistryValue
                                 Root="HKCU"
-                                Key="Software\BeeWare Corp\HelloWorld"
+                                Key="Software\{{ cookiecutter.organization_name }}\{{ cookiecutter.formal_name }}"
                                 Name="installed"
                                 Type="integer"
                                 Value="1"
@@ -87,12 +87,12 @@
           <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
           <Property Id="WixUI_Mode" Value="Custom" />
 
-          <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+<!--           <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
           <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
           <TextStyle Id="WixUI_Font_Title"  FaceName="Tahoma" Size="9" Bold="yes" />
 
           <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
-
+ -->
           <DialogRef Id="ProgressDlg" />
           <DialogRef Id="ErrorDlg" />
           <DialogRef Id="FilesInUse" />
