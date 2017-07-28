@@ -58,7 +58,7 @@
                                 Icon="ProductIcon"
                                 Description="{{ cookiecutter.description }}"
                                 Target="[DIR_python]\pythonw.exe"
-                                WorkingDirectory="DIR_app"
+                                WorkingDirectory="AppDir"
                                 Arguments="app\start.py" />
                         <RegistryValue
                                 Root="HKCU"
