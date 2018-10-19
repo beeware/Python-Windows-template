@@ -48,7 +48,10 @@
             </Directory>
 
             <Directory Id="ProgramMenuFolder">
-                <Directory Id="ProgramMenuSubfolder" Name="{{ cookiecutter.formal_name }}">
+                <Directory Id="ApplicationProgramsFolder" Name="{{ cookiecutter.formal_name }}"/>
+            </Directory>
+        </Directory>
+            <DirectoryRef Id="ApplicationProgramsFolder">
                     <Component
                             Id="ApplicationShortcuts"
                             Guid="12345678-1234-1234-1234-333333333333">
@@ -69,11 +72,11 @@
                                 Type="integer"
                                 Value="1"
                                 KeyPath="yes" />
-                        <RemoveFolder Id="ProgramMenuSubfolder" On="uninstall"/>
+                        <RemoveFolder Id="CleanUpShortCut"
+                                      Directory="ApplicationProgramsFolder"
+                                      On="uninstall"/>
                     </Component>
-                </Directory>
-            </Directory>
-        </Directory>
+            </DirectoryRef>
 
         <InstallExecuteSequence>
             <RemoveExistingProducts After="InstallValidate"/>
