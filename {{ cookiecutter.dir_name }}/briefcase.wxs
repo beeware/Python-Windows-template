@@ -48,10 +48,14 @@
             </Directory>
 
             <Directory Id="ProgramMenuFolder">
-                <Directory Id="ProgramMenuSubfolder" Name="{{ cookiecutter.formal_name }}">
+                <Directory Id="ApplicationProgramsFolder" Name="{{ cookiecutter.formal_name }}"/>
+            </Directory>
+        </Directory>
+            <DirectoryRef Id="ApplicationProgramsFolder">
                     <Component
                             Id="ApplicationShortcuts"
                             Guid="12345678-1234-1234-1234-333333333333">
+<!-- SHORTCUTS_PROVIDED -->
                         <Shortcut
                                 Id="ApplicationShortcut1"
                                 Name="{{ cookiecutter.formal_name }}"
@@ -60,6 +64,7 @@
                                 Target="[DIR_python]\pythonw.exe"
                                 WorkingDirectory="AppDir"
                                 Arguments="app\start.py" />
+<!-- SHORTCUTS -->
                         <RegistryValue
                                 Root="HKCU"
                                 Key="Software\{{ cookiecutter.organization_name }}\{{ cookiecutter.formal_name }}"
@@ -67,11 +72,11 @@
                                 Type="integer"
                                 Value="1"
                                 KeyPath="yes" />
-                        <RemoveFolder Id="ProgramMenuSubfolder" On="uninstall"/>
+                        <RemoveFolder Id="CleanUpShortCut"
+                                      Directory="ApplicationProgramsFolder"
+                                      On="uninstall"/>
                     </Component>
-                </Directory>
-            </Directory>
-        </Directory>
+            </DirectoryRef>
 
         <InstallExecuteSequence>
             <RemoveExistingProducts After="InstallValidate"/>
