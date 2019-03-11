@@ -23,7 +23,7 @@ However, if you *do* want use this template directly...
 
 2. Run ``cookiecutter`` on the Python-Windows template::
 
-    $ cookiecutter https://github.com/pybee/Python-Windows-template --checkout 3.6
+    $ cookiecutter https://github.com/pybee/Python-Windows-template --checkout 3.7
 
 3. `Download the Python Embedded Windows install`_, and extract it.
 
