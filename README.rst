@@ -58,11 +58,6 @@ distributed as a standalone package.
 Next steps
 ----------
 
-Of course, just running Python code isn't very interesting by itself - you'll
-be able to output to the console, and see that output in XCode, but if you
-tap the app icon on your phone, you won't see anything - because there isn't a
-visible console on an iPhone.
-
 To do something interesting, you'll need to work with the native Windows system
 libraries to draw widgets and respond to screen taps. One option is the
 `toga`_ library, which is a cross-platform widget toolkit that supports Windows.
@@ -73,7 +68,7 @@ third-party library), you should install the library code into the
 directory on a normal Python install.
 
 .. _cookiecutter: http://github.com/audreyr/cookiecutter
-.. _Download the Python Embedded Windows install: https://www.python.org/ftp/python/3.5.3/python-3.5.3-embed-amd64.zip
+.. _Download the Python Embedded Windows install: https://www.python.org/ftp/python/3.5.4/python-3.5.4-embed-amd64.zip
 .. _Python-Apple-support: http://github.com/pybee/Python-Apple-support
 .. _toga: http://pybee.org/toga
 .. _Rubicon: http://github.com/pybee/rubicon-objc
