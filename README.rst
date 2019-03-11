@@ -3,7 +3,7 @@ Python Windows Template
 
 A template for building Python apps that will run under Windows.
 
-**This repository branch contains a template for Python 3.6**.
+**This repository branch contains a template for Python 3.7**.
 Other Python versions are available by cloning other branches of repository.
 
 Using this template
@@ -58,11 +58,6 @@ distributed as a standalone package.
 Next steps
 ----------
 
-Of course, just running Python code isn't very interesting by itself - you'll
-be able to output to the console, and see that output in XCode, but if you
-tap the app icon on your phone, you won't see anything - because there isn't a
-visible console on an iPhone.
-
 To do something interesting, you'll need to work with the native Windows system
 libraries to draw widgets and respond to screen taps. One option is the
 `toga`_ library, which is a cross-platform widget toolkit that supports Windows.
@@ -73,7 +68,5 @@ third-party library), you should install the library code into the
 directory on a normal Python install.
 
 .. _cookiecutter: http://github.com/audreyr/cookiecutter
-.. _Download the Python Embedded Windows install: https://www.python.org/ftp/python/3.6.1/python-3.6.1-embed-amd64.zip
-.. _Python-Apple-support: http://github.com/pybee/Python-Apple-support
+.. _Download the Python Embedded Windows install: https://www.python.org/ftp/python/3.7.2/python-3.7.2.post1-embed-amd64.zip
 .. _toga: http://pybee.org/toga
-.. _Rubicon: http://github.com/pybee/rubicon-objc
